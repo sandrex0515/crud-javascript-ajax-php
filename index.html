@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>
+        ajax
+    </title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+    Name:<input type="text" name="name" id="name"><br>
+    Comment<textarea name="comment" id="comment" cols="30" row="5"></textarea><br>
+    <button type="button" id="submit" onclick="myFunction()">Submit</button>
+    
+    </form>
+
+
+    <script>
+    function myFunction() {
+    var name = document.getElementById('name').value;
+    var comment = document.getElementById('comment').value;
+
+    var dataString = 'name1=' + name + '&comment1=' + comment; 
+    if(name == '' || comment == ''){
+    alert("Please fill all fields");
+    
+    }else{
+
+$.ajax({
+    type: "POST",
+    url: "add.php",
+    data: dataString,
+    cache: false,
+    success: function(html){
+        alert(html);
+    }
+
+});
+
+    }
+    
+    return false;
+    }
+    
+    </script>
+    
+    <table>
+        
+
+
+    </table>
+</body>
+</html>
